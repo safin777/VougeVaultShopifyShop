@@ -1,0 +1,73 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Rokkitt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: 'Rokkitt', serif;
+    background-color: #EEEEEE;
+    margin: 0px;
+    padding: 0px;
+}
+
+.homepage {
+    text-align: center;
+    padding-top: 10em;
+}
+
+.logo {
+    width: 25%;
+}
+
+/* Header CSS */
+.header_section{
+    display: flex;
+    align-items: center;
+    height: 80px;
+}
+.store_logo {
+    flex-grow: 1;
+    margin-left: 20px;
+    /* background-color: #658864; */
+}
+
+.nav_menus {
+    flex-grow: 7;
+    /* background-color: red; */
+}
+
+.nav_icons {
+    flex-grow : 2;
+    /* background-color: blueviolet; */
+}
+
+.logo_text{
+    color: #658864;
+    font-size: 2.5rem;
+}
+
+.nav_menu_items {
+    display: flex;
+    color: #497174;
+    justify-content: center;
+}
+
+.nav_menu_icons{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 35px;
+}
+
+.nav_menu_item{
+  margin: 0px 25px 0px 25px;
+    font-size: 1.2rem;
+}
+
+.nav_menu_icon {
+    margin: 0px 10px 0px 10px;
+    font-size: 1.2rem;
+}
+
+
+
+/* End of Header CSS */
+
+
