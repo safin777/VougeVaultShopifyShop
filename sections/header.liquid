@@ -1,36 +1,76 @@
 <div class="header_section" id="header_section">
     {% comment %} Store Name / Store Logo {% endcomment %}
-     <div class="store_logo">
-          <p class="logo_text">
-            Vogue Vault
-          </p>
-     </div>
-   
-   
-    {% comment %} Navigational Menu  {% endcomment %}
+    <div class="store_logo">
+        <a class="logo_text" href="">
+            {{ shop.name }}
+        </a>
+    </div>
 
-     <div class="nav_menus">
-         <ul class="nav_menu_items">
-            <a href="">  <li class="nav_menu_item">Mega Sell</li> </a>
-            <a href="">  <li class="nav_menu_item">Men</li>  </a>
-            <a href="">  <li class="nav_menu_item">Women</li> </a>
-            <a href="">  <li class="nav_menu_item">Kids</li> </a>
-         </ul>
-     </div>
+    {% comment %} Navigational Menu {% endcomment %}
 
-    {% comment %} End of Navigational Menu  {% endcomment %}
+    <div class="nav_menus">
+        <ul class="nav_menu_items">
+            {% for link in section.settings.header_menu.links %}
+                {% if link.links != blank %}
+                    <a href="{{ link.url }}" class="" >
+                        <li class="nav_menu_item font-bold flex">{{ link.title }} <span class="header_dropdown_icon">{% render 'icon-dropdown' %}</span> </li>
+                    </a>
+                    
+                {% else %}
+                    <a href="">
+                        <li class="nav_menu_item">{{ link.title }}</li>
+                    </a>
+                {% endif %}
+
+            {% endfor %}
+        </ul>
+    </div>
+
+    {% comment %} End of Navigational Menu {% endcomment %}
 
     <div class="nav_icons">
-         <ul class="nav_menu_icons">
-            <a href=""><li class="nav_menu_icon">{% render 'user-icon' %}</li> </a>
-            <a href=""><li class="nav_menu_icon">{% render 'cart-icon' %}</li> </a>
-         </ul>
-     </div>
+        <ul class="nav_menu_icons">
+
+            {% if shop.customer_accounts_enabled %}
+                {% if customer %}
+                    <a href="">
+                        <li class="nav_menu_icon">{% render 'icon-user' %}</li>
+                        <li class="nav_menu_icon"> {{ 'Log Out' | customer_logout_link }}</li>
+                    </a>
+
+                {% else %}
+
+                    <a href="">
+                         <li class="nav_menu_icon"> {{ 'Log In' | customer_login_link }}</li>
+                         <li class="nav_menu_icon"> {{ 'Register' | customer_register_link }}</li> 
+                        
+                    </a>
+                {% endif %}
+            {% endif %}
+            <a href="">
+                <li class="nav_menu_icon">{% render 'icon-cart' %}</li>
+            </a>
+        </ul>
+    </div>
 
 
 
-    {% comment %} Cart Icon  {% endcomment %}
+    {% comment %} Cart Icon {% endcomment %}
     {% comment %} Search Icon {% endcomment %}
     {% comment %} User Icon {% endcomment %}
     {% comment %} Wishlist Icon {% endcomment %}
 </div>
+
+{% schema %}
+    {
+    "name": "Header",
+    "settings": [
+        {
+        "type": "link_list",
+        "id": "header_menu",
+        "default": "main-menu",
+        "label": "Header Navigation Menu"
+        }
+    ]
+    }
+{% endschema %}
