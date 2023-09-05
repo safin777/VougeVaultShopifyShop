@@ -85,8 +85,40 @@ body {
     z-index: 1;
 }
 
+.nav_hamburger{
+    display: none;
+}
+
 
 
 /* End of Header CSS */
+
+
+/* media query for mobile devices */
+
+@media only screen and (max-width: 600px) {
+    .nav_menus {
+        display: none;
+    }
+
+    .nav_icons {
+        display: none;
+    }
+
+    .nav_hamburger{
+        display: flex;
+    }
+
+    .hamburger_icon{
+        margin-right: 20px;
+    }
+
+   
+
+
+}
+
+
+
 
 
